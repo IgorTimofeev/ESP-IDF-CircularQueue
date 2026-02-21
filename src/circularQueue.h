@@ -11,8 +11,8 @@ namespace YOBA {
 			}
 
 			void push(const _T& value) {
-				_tail = (_tail + 1) % _size;
-				_data[_tail] = value;
+				const auto tail = (_head + _count) % _size;
+				_data[tail] = value;
 				_count++;
 			}
 
@@ -37,7 +37,6 @@ namespace YOBA {
 			_T _data[_size] {};
 
 			size_t _head = 0;
-			size_t _tail = 0;
 			size_t _count = 0;
 	};
 }
